@@ -11,6 +11,7 @@
             }
             .container {
                 display: flex;
+                flex-direction: row;
                 direction: ltr;
                 justify-content: center;
                 align-items: center;
@@ -46,7 +47,7 @@
     <h1>Alterne os modos de display</h1>
     <h2 class="modo">Display: Flex</h2>
 	<button onclick="alteraDisplay()">Altera Modo Display</button>
-    <button onclick="alteraDirecao()">Direção:</button> <label class="tipo">Normal</label>
+    <button onclick="alteraDirecao()">Direção:</button> <label class="tipo">row ltr</label>
     <br>
     <div class="container">
 		<div class="quadrado verde">1</div>
@@ -62,6 +63,10 @@
         início da esquerda para a direita ou reverso. No caso
         do inline-block, como coloca um bloco em cada linha,
         esse recurso é ignorado.
+        <br>Para ativar o botão Direção, primeiro use o botão
+        que altera o modo.
+        <br>flex-direction = "row" é o mesmo que direction = "ltr"
+        <br>flex-direction = "row-reverse" é o mesmo que direction = "rtl"
         <br>Teste!
     </p>
 	<script>
@@ -87,13 +92,33 @@
         function alteraDirecao(){
             const container = document.querySelector(".container");
             let direcaoAtual = container.style.direction;
+            let displayAtual = container.style.display;
             const oTipo = document.querySelector(".tipo");
-            if (direcaoAtual === "ltr"){
-                container.style.direction = "rtl";
-                oTipo.innerHTML = "Reversa";
+            if (displayAtual === "flex"){
+                if (oTipo.innerHTML === "row ltr"){
+                    container.style.direction = "rtl";
+                    oTipo.innerHTML = "row rtl";
+                } else if (oTipo.innerHTML === "row rtl"){
+                    container.style.direction = "";
+                    oTipo.innerHTML = "Direction = column";
+                    container.style.flexDirection = "column";
+                } else if (oTipo.innerHTML === "Direction = column"){
+                    container.style.direction = "";
+                    oTipo.innerHTML = "Direction = column-reverse";
+                    container.style.flexDirection = "column-reverse";
+                } else {
+                    container.style.direction = "ltr";
+                    container.style.flexDirection = "row";
+                    oTipo.innerHTML = "row ltr";
+                }
             } else {
-                container.style.direction = "ltr";
-                oTipo.innerHTML = "Normal";
+                if (oTipo.innerHTML === "row ltr"){
+                    container.style.direction = "rtl";
+                    oTipo.innerHTML = "row rtl";
+                } else if (oTipo.innerHTML === "row rtl"){
+                    container.style.direction = "ltr";
+                    oTipo.innerHTML = "row ltr";
+                }               
             }
         }
     </script>
