@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alinhamento de itens no eixo principal</title>
+    <style>
+            h1{
+                text-align: center;
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: lightgray;
+                height: 300px;
+            }
+            .quadrado {
+                margin: 10px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 40px;
+                color: white;
+            }
+            .verde {
+                background-color: green;
+                width: 100px;
+                min-height: 140px;                
+            }
+            .laranja {
+                background-color: orange;
+                width: 140px;
+                min-height: 100px;
+            }
+            .roxo {
+                background-color: purple;
+                width: 140px;
+                min-height: 120px;
+            }
+            .azul {
+                background-color: blue;
+                width: 100px;
+                min-height: 200px;
+            }
+
+    </style>
+</head>
+<body>
+    <h1>Aqui vemos as diferentes formas de alinhar o conteúdo no eixo transversal</h1>
+    <h2>align-itens = "<em class="modo">center</em>"</h2>
+    <h3>Alinha o conteúdo <em class="texto">ao centro do container.</em></h3>
+	<button onclick="alteraDisplay()">Altera Alinhamento</button>
+    <div class="container">
+		<div class="quadrado verde">1</div>
+		<div class="quadrado laranja">2</div>
+		<div class="quadrado roxo">3</div>
+		<div class="quadrado azul">4</div>
+	</div>    
+    <p>Atente que para esse recurso funcionar, não definimos
+        a propriedade height dos quadrados, mas sim a propriedade
+        min-heigth. Caso contrário, o stretch não funcionará.
+        <br>Caso deseje manipular um elemento de forma individual,
+        aí deverá usar o align-self dele, ao invés de definir pelo
+        align-items geral. 
+    </p>
+    <script>
+        function alteraDisplay(){
+            const container = document.querySelector(".container");
+            let alinha = document.querySelector(".modo");
+            let texto = document.querySelector(".texto");
+            if(alinha.innerHTML === "center"){
+                container.style.alignItems = "flex-start";
+                alinha.innerHTML = "flex-start";
+                texto.innerHTML = "no topo do container.";
+            } else if (alinha.innerHTML === "flex-start"){
+                container.style.alignItems = "flex-end";
+                alinha.innerHTML = "flex-end";
+                texto.innerHTML = "pela base do container.";
+            } else if (alinha.innerHTML === "flex-end"){
+                container.style.alignItems = "stretch";
+                alinha.innerHTML = "stretch";
+                texto.innerHTML = "no container, inserindo espaços entre os itens.";
+            } else if (alinha.innerHTML === "stretch"){
+                container.style.alignItems = "baseline";
+                alinha.innerHTML = "baseline";
+                texto.innerHTML = "pela linha base do container.";
+            }else {
+                container.style.alignItems = "center";
+                alinha.innerHTML = "center";
+                texto.innerHTML = "ao centro do container.";
+            }
+        }
+    </script>
+</body>
+</html>

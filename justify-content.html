@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alinhamento de itens no eixo principal</title>
+    <style>
+            h1{
+                text-align: center;
+            }
+            .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: lightgray;
+                height: 300px;
+            }
+            .quadrado {
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 40px;
+                color: white;
+            }
+            .verde {
+                background-color: green;
+            }
+            .laranja {
+                background-color: orange;
+            }
+            .roxo {
+                background-color: purple;
+            }
+            .azul {
+                background-color: blue;
+            }
+
+    </style>
+</head>
+<body>
+    <h1>Aqui vemos as diferentes formas de justificar o conteúdo no eixo principal</h1>
+    <h2>justify-content = "<em class="modo">center</em>"</h2>
+    <h3>Justifica o conteúdo <em class="texto">ao centro do container.</em></h3>
+	<button onclick="alteraDisplay()">Altera Alinhamento</button>
+    <div class="container">
+		<div class="quadrado verde">1</div>
+		<div class="quadrado laranja">2</div>
+		<div class="quadrado roxo">3</div>
+		<div class="quadrado azul">4</div>
+	</div>    
+    <script>
+        function alteraDisplay(){
+            const container = document.querySelector(".container");
+            let alinha = document.querySelector(".modo");
+            let texto = document.querySelector(".texto");
+            if(alinha.innerHTML === "center"){
+                container.style.justifyContent = "flex-start";
+                alinha.innerHTML = "flex-start";
+                texto.innerHTML = "à esquerda.";
+            } else if (alinha.innerHTML === "flex-start"){
+                container.style.justifyContent = "flex-end";
+                alinha.innerHTML = "flex-end";
+                texto.innerHTML = "à direita.";
+            } else if (alinha.innerHTML === "flex-end"){
+                container.style.justifyContent = "space-between";
+                alinha.innerHTML = "space-between";
+                texto.innerHTML = "no container, inserindo espaços entre os itens.";
+            } else if (alinha.innerHTML === "space-between"){
+                container.style.justifyContent = "space-around";
+                alinha.innerHTML = "space-around";
+                texto.innerHTML = "no container, inserindo espaços em volta dos itens.";
+            }else {
+                container.style.justifyContent = "center";
+                alinha.innerHTML = "center";
+                texto.innerHTML = "ao centro do container.";
+            }
+        }
+    </script>
+</body>
+</html>
