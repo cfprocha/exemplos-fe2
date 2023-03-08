@@ -1,1 +1,1 @@
-# Exemplos de códigos usados
+# Exemplos de códigos usados nas aulas e complementares
