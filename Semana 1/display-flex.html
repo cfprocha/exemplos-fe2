@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modos de Display</title>
+        <style>
+            h1{
+                text-align: center;
+            }
+            .container {
+                display: flex;
+                direction: ltr;
+                justify-content: center;
+                align-items: center;
+                background-color: lightgray;
+                height: 300px;
+            }
+            .quadrado {
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                border-radius: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 40px;
+                color: white;
+            }
+            .verde {
+                background-color: green;
+            }
+            .laranja {
+                background-color: orange;
+            }
+            .roxo {
+                background-color: purple;
+            }
+            .azul {
+                background-color: blue;
+            }
+</style>
+</head>
+<body>
+    <h1>Alterne os modos de display</h1>
+    <h2 class="modo">Display: Flex</h2>
+	<button onclick="alteraDisplay()">Altera Modo Display</button>
+    <button onclick="alteraDirecao()">Direção:</button> <label class="tipo">Normal</label>
+    <br>
+    <div class="container">
+		<div class="quadrado verde">1</div>
+		<div class="quadrado laranja">2</div>
+		<div class="quadrado roxo">3</div>
+		<div class="quadrado azul">4</div>
+	</div>
+    <p>
+        Quando usamos Flex, alterar a direção (direction), 
+        faz com que seja modificada a ordem de exposição dos
+        itens. Já quando usamos block, ele altera o
+        ponto de início da exposição dos elementos, ou seja,
+        início da esquerda para a direita ou reverso. No caso
+        do inline-block, como coloca um bloco em cada linha,
+        esse recurso é ignorado.
+        <br>Teste!
+    </p>
+	<script>
+		function alteraDisplay() {
+			const container = document.querySelector(".container");
+			let displayAtual = container.style.display;
+            const oModo = document.querySelector(".modo");
+            if (displayAtual === "flex") {
+                container.style.height = "500px";
+			    container.style.display = "block";
+                oModo.innerHTML = "Display: Block";
+            } else if (displayAtual === "block") {
+                container.style.height = "500px";
+                container.style.display = "inline-block";
+                oModo.innerHTML = "Display: inline-block";
+            } else {
+                container.style.height = "300px";
+                container.style.display = "flex";
+                oModo.innerHTML = "Display: Flex";
+            }
+        }
+
+        function alteraDirecao(){
+            const container = document.querySelector(".container");
+            let direcaoAtual = container.style.direction;
+            const oTipo = document.querySelector(".tipo");
+            if (direcaoAtual === "ltr"){
+                container.style.direction = "rtl";
+                oTipo.innerHTML = "Reversa";
+            } else {
+                container.style.direction = "ltr";
+                oTipo.innerHTML = "Normal";
+            }
+        }
+    </script>
+
+</body>
+</html>
