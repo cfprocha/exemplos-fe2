@@ -57,7 +57,14 @@ article a{
     text-decoration: none;
 }
 .comprar-btn{
-    display: inline-block;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    width: fit-content;
+    /*
+    margin-left: 50%;
+    transform: translateX(-50%);
+    */
     background-color: #333;
     color: #fff;
     padding: 5px 10px;
