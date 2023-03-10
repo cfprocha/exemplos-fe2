@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações</title>
+    <link rel="stylesheet" href="animacoes.css">
+</head>
+<body>
+    <h1>Animações</h1>
+    <h3>Usamos @keyframes para criar a animação e o atributo animation para adicionar ela a um elemento da página</h3>
+    <h2>Deslocamento infinito</h2>
+    <button onclick="Ativa()">Ativa quadrado</button>
+    <div class="quadrado"></div> 
+    <h2>Deslocamento único</h2>
+    <div class="circulo"></div>
+    <h2>Alterando as cores do elemento através da animação</h2>
+    <div class="alt-cor"></div>
+    <h2>Efeito de sombra no movimento</h2>
+    <div class="caixa">
+        <div class="bola blur1"></div>
+        <div class="bola blur2"></div>
+        <div class="bola blur3"></div>
+        <div class="bola blur4"></div>
+    </div>
+    <script>
+        function Ativa(){
+            let quadrado = document.querySelector(".quadrado");
+            quadrado.style.background = "navy";
+            quadrado.style.animation = "esq-dir 5s 2s infinite";
+        }
+    </script>
+</body>
+</html>

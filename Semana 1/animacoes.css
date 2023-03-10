@@ -1,0 +1,99 @@
+h1{
+    text-align: center;
+}
+.quadrado{
+    width: 150px;
+    height: 150px;
+    background: yellow;
+    position: relative;
+    /* animation: esq-dir 5s 2s infinite; */
+}
+
+@keyframes esq-dir {
+    0%{left: 0px;}
+    50%{left: 200px;}
+    100%{left: 0px;}
+}
+
+.circulo{
+    width: 10%;
+    padding-bottom: 10%;
+    border-radius: 50%;
+    background: green;
+    box-shadow: -3px 5px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    left: 5%;
+    animation: rolar 1s 3s;
+}
+
+@keyframes rolar {
+    from {left: 5%;}
+    to {left: 85%;}
+}
+
+.alt-cor{
+    width: 150px;
+    height: 150px;
+    background-color: brown;
+    position: relative;
+    animation: muda-cor 15s 4s infinite;
+}
+
+@keyframes muda-cor {
+    0% {background-color: blue;}
+    25% {background-color: lightgreen; border-radius: 0 30px;}
+    50% {
+            background-color: green;
+            border-radius: 15px 30px;
+        }
+    75% {background-color: lightgoldenrodyellow; border-radius: 30px;}
+    100% {background-color: blue;}
+}
+.caixa{
+    position: relative;
+    left: 50%;
+    width: 400px;
+    height: 200px;
+    margin-left: -200px;
+    /* overflow: hidden; */
+    background-color: #333;
+}
+.bola{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 75px;
+    left: 175px;
+    background-color: gray;
+    border-radius: 50%;
+    -webkit-animation: bolas 15s ease-in-out infinite;
+    animation: bolas 15s ease-in-out infinite;
+}
+
+.blur1{
+    animation-delay: 20ms;
+    opacity: 0.5;
+}
+.blur2{
+    animation-delay: 40ms;
+    opacity: 0.4;
+}
+.blur3{
+    animation-delay: 60ms;
+    opacity: 0.3;
+}
+.blur4{
+    animation-delay: 80ms;
+    opacity: 0.2;
+}
+
+@keyframes bolas {
+    0%, 100% {
+        -webkit-transform: translateX(-250px);
+        transform: translateX(-250px);
+    }
+    50% {
+        -webkit-transform: translateX(250px);
+        transform: translateX(250px);
+    }
+}

@@ -1,0 +1,42 @@
+h1{
+    text-align: center;
+}
+.caixa{
+    width: 400px;
+    height: 100px;
+    margin: 20px auto;
+    position: relative;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+.bola{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ff6b6b;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    animation-name: mover;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+.bola1{
+    animation-timing-function:cubic-bezier(1, 0, 0.54, .03);
+}
+.bola2{
+    animation-timing-function: ease;
+} 
+.bola3{
+    animation-timing-function: ease-in;
+}
+.bola4{
+    animation-timing-function: ease-out;
+}
+.bola5{
+    animation-timing-function: ease-in-out;
+}
+@keyframes mover {
+    from {left: 0px;}
+    to {left: 325px;}
+}

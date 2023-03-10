@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex-grow</title>
+    <style>
+        .container{
+            display: flex;
+            border: 1px solid #c3c3c3;
+            /* max-width: 600px; */
+            /* margin: 0 auto; */
+        }
+        .item{
+            background-color: #ccc;
+            margin: 10px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 250px;
+            text-align: center;
+        }
+        .item-3{
+            flex-grow: 3;
+            flex-shrink: 2;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="tamanho()">Tamanho</button>
+    <div class="container">
+        <div class="item item-1">Item 1</div>
+        <div class="item item-2">Item 2</div>
+        <div class="item item-3">Item 3</div>
+    </div>
+    <script>
+        function tamanho(){
+            let item1 = document.querySelector(".item-1");
+            let item2 = document.querySelector(".item-2")
+            let item3 = document.querySelector(".item-3")
+            item1.innerHTML = item1.clientWidth + "px";
+            item2.innerHTML = item2.clientWidth + "px";
+            item3.innerHTML = item3.clientWidth + "px";
+        }
+    </script>
+</body>
+</html>
